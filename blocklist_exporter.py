@@ -5,12 +5,19 @@ import datetime
 
 version="v0.1"
 
+# Load API keys from json file
 def load_keys():
 	if os.path.exists("keys.json"):
 		keysfile = open('keys.json', 'r')
 		keys = json.load(keysfile)
 		return keys
+	else:
+		print("No keys.json file found. Check the README on how to generate Twitter API tokens.")
+		print("Check keys.json.example for an example keys.json file")
+		print("Exiting.")
+		quit()
 
+# Output blocklist as HTML
 def output_html(blocklist):
 	file = open("blocklist.html", "w")
 	file.write("<html><head><title>My Twitter Blocklist</title></head><body>")
@@ -26,18 +33,18 @@ def output_html(blocklist):
 		file.write(line)
 	file.write("</ul></body></html>")
 
-def read_blocklist_from_file(file):
-	# Read blocklist
-	inputfile = open('block.js', 'r')
-	full_file = inputfile.read()
-	# Find first occurence of "[" and strip to there
-	full_file = full_file[full_file.index("["):]
-	data = json.loads(full_file)
-	blocklist = []
-	# create a list of dictionaries, one dictionary per blocked user
-	for item in data:
-		blocklist.append({ 'userid' : item['blocking']['accountId'], 'userlink' : item['blocking']['userLink']})
-	return blocklist
+# def read_blocklist_from_file(file):
+# 	# Read blocklist
+# 	inputfile = open('block.js', 'r')
+# 	full_file = inputfile.read()
+# 	# Find first occurence of "[" and strip to there
+# 	full_file = full_file[full_file.index("["):]
+# 	data = json.loads(full_file)
+# 	blocklist = []
+# 	# create a list of dictionaries, one dictionary per blocked user
+# 	for item in data:
+# 		blocklist.append({ 'userid' : item['blocking']['accountId'], 'userlink' : item['blocking']['userLink']})
+# 	return blocklist
 
 def get_blocklist_from_API(api):
 	blocklist = []
@@ -49,20 +56,12 @@ def get_blocklist_from_API(api):
 def main():
 	print("Twitter Blocklist exporter " + version + " - https://github.com/Forceflow/twitter_blocklist_exporter")
 	print("---")
-	# Check if key file exists
-	if not os.path.isfile('keys.json'):
-		print("No keys.json file found. Check the README on how to generate Twitter API tokens.")
-		print("Check keys.json.example for an example keys.json file")
-		print("Exiting.")
-		return
+
 	# Load settings from file
 	print("Loading Twitter API keys from file")
 	keys = load_keys()
 	
 	# blocklist = read_blocklist_from_file('block.js')
-	# print(blocklist)
-	# output_html(blocklist)
-	# lookup_userids(blocklist)
 
 	# Do Twitter auth
 	print("Authenticating with Twitter")
