@@ -1,5 +1,11 @@
 # twitter_blocklist_exporter v0.1
-This is a script that uses the Twitter API to download your most recent blocklist and generate a HTML file with all usernames listed and clickable.
+This is a Python3 script that uses the Twitter API to download your most recent blocklist and generate a HTML file with all usernames listed and clickable.
+
+# Running
+Just run `python3 blocklist_exporter.py`. After the script has run, your exported blocklist can be found in `blocklist.html`.
+
+# Requirements
+Only the [Tweepy library](https://docs.tweepy.org/en/stable/install.html) is required. Install it using `pip3 install tweepy` or through your distribution package manager. 
 
 # Generate API tokens
 In order to query and download your blocklist, this script needs API tokens that you need to fill in in `keys.json`. Without them the script will not work.
