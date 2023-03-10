@@ -24,9 +24,9 @@ Done. Exiting.
 # Generate API tokens
 In order to query and download your blocklist, this script needs **API tokens** that you need to provide in a `keys.json` file in the same directory as the script.
 
-At the time of writing (10-03-2023), this is how you generate the tokens required to export your blocklist.
+At the time of writing (10-03-2023), this is how you generate the tokens required to export your blocklist. Also at the time of writing, this functionality still is free for a limited amount of requests. Tweepy batches the requests as much as possible.
 
-* Register at the **[Twitter Developer Portal](https://developer.twitter.com/)**
+* Register on the **[Twitter Developer Portal](https://developer.twitter.com/)**.
 * Log in, and on the [main dashboard](https://developer.twitter.com/en/portal/dashboard), go to [Projects & Apps -> overview](https://developer.twitter.com/en/portal/projects-and-apps)
 * Under **Standalone Apps**, click [**Create new app**](https://developer.twitter.com/en/portal/apps/new) and give your app a unique name
 * Copy the `API_KEY` and `API_KEY_SECRET`. You will only be shown these once.
