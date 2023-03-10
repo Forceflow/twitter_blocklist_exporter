@@ -1,5 +1,7 @@
 # twitter_blocklist_exporter v0.1
-This is a Python3 script that uses the Twitter API to download your most recent blocklist and generate a HTML file with all usernames listed and clickable. 
+This is a Python3 script that uses the Twitter API to download your **Twitter blocklist** and generate a HTML file with all usernames listed and clickable. You can use this list as a reference to share or block unwanted accounts elsewhere.
+
+This script was created because blocklist exporting/importing, introduced on the platform [in 2015](https://blog.twitter.com/en_us/a/2015/sharing-block-lists-to-help-make-twitter-safer), has been absent without notice since 2019.
 
 # Running
 Just run `python3 blocklist_exporter.py`. After the script has run, your exported blocklist can be found in `blocklist.html`.
@@ -32,3 +34,8 @@ At the time of writing (10-03-2023), this is how you generate the tokens require
 * At the bottom, it says **Access Token and Secret for @youraccountname**. Click **Generate**.
 * Copy these values, these are `ACCESS_TOKEN` and `ACCESS_TOKEN_SECRET`
 * Done! Copy `keys.json.example` to `keys.json` and fill in the `API_KEY`, `API_KEY_SECRET`, `ACESS_TOKEN` and `ACCESS_TOKEN_SECRET` values.
+
+# Todo
+* Markdown / Json export (maybe with upload integration to pastebin or elsewhere)
+* Blocklist importing, if feasible
+* Parsing of blocks.js from the Twitter Archive dump, for people who don't want to generate API keys
