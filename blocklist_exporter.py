@@ -18,7 +18,7 @@ def load_keys():
 		quit()
 
 # Output blocklist as HTML
-def output_html(blocklist):
+def output_html_blocklist(blocklist):
 	file = open("blocklist.html", "w")
 	file.write("<html><head><title>My Twitter Blocklist</title></head><body>")
 	now = datetime.datetime.now()
@@ -48,7 +48,7 @@ def output_html(blocklist):
 
 def get_blocklist_from_API(api):
 	blocklist = []
-	for user in tweepy.Cursor(api.get_blocks).items():
+	for user in tweepy.Cursor(api.get_blocks, skip_status=True).items():
 		# We grab userid and screen_name
 		blocklist.append({ 'userid' : user.id, 'screen_name' : user.screen_name})
 	return blocklist
@@ -67,10 +67,12 @@ def main():
 	print("Authenticating with Twitter")
 	auth = tweepy.OAuth1UserHandler(keys["API_KEY"], keys["API_KEY_SECRET"], keys["ACCESS_TOKEN"], keys["ACCESS_TOKEN_SECRET"])
 	api = tweepy.API(auth)
+
+	# Grab blocklist
 	print("Grabbing blocklist")
 	blocklist = get_blocklist_from_API(api)
 	print(str(len(blocklist)) + " blocked accounts found. Writing to blocklist.html")
-	output_html(blocklist)
+	output_html_blocklist(blocklist)
 	print("Done. Exiting.")
 
 if __name__ == "__main__":
