@@ -4,7 +4,7 @@ import os
 import datetime
 import argparse
 
-version="v0.1"
+version="v0.2"
 
 # Load API keys from json file
 def load_keys():
