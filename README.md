@@ -4,8 +4,8 @@ This is a Python3 script that uses the Twitter API to download your **Twitter bl
 This script was created because blocklist/mutelist exporting/importing, introduced on the platform [in 2015](https://blog.twitter.com/en_us/a/2015/sharing-block-lists-to-help-make-twitter-safer), has been absent without notice since 2019.
 
 # Running
-Just run `python3 blocklist_exporter.py`. After the script has run, your exported blocklist can be found in `blocklist.html`.
-If you want to export your mutelist, add --mutelist to the command: `python3 blocklist_exporter.py --mutelist`
+* Run `python3 blocklist_exporter.py`. After the script has run, your exported blocklist can be found in `blocklist.html`.
+* If you want to export your mutelist, add `--mutelist` to the command: `python3 blocklist_exporter.py --mutelist`
 
 # Requirements
 Python 3 with the [Tweepy library](https://docs.tweepy.org/en/stable/install.html) is required. Install it using `pip3 install tweepy` or through your distribution package manager.  You also need Twitter API keys. Check the section below on how to generate them.
