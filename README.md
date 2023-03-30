@@ -1,17 +1,18 @@
-# twitter_blocklist_exporter v0.1
-This is a Python3 script that uses the Twitter API to download your **Twitter blocklist** and generate a HTML file with all usernames listed and clickable. You can use this list as a reference to share or block unwanted accounts elsewhere.
+# twitter_blocklist_exporter v0.2
+This is a Python3 script that uses the Twitter API to download your **Twitter blocklist** or **mutelist** and generate a HTML file with all usernames listed and clickable. You can use this list as a reference to share, mute or block unwanted accounts elsewhere.
 
-This script was created because blocklist exporting/importing, introduced on the platform [in 2015](https://blog.twitter.com/en_us/a/2015/sharing-block-lists-to-help-make-twitter-safer), has been absent without notice since 2019.
+This script was created because blocklist/mutelist exporting/importing, introduced on the platform [in 2015](https://blog.twitter.com/en_us/a/2015/sharing-block-lists-to-help-make-twitter-safer), has been absent without notice since 2019.
 
 # Running
 Just run `python3 blocklist_exporter.py`. After the script has run, your exported blocklist can be found in `blocklist.html`.
+If you want to export your mutelist, add --mutelist to the command: `python3 blocklist_exporter.py --mutelist`
 
 # Requirements
 Python 3 with the [Tweepy library](https://docs.tweepy.org/en/stable/install.html) is required. Install it using `pip3 install tweepy` or through your distribution package manager.  You also need Twitter API keys. Check the section below on how to generate them.
 
 # Sample output
 ```
-Twitter Blocklist exporter v0.1 - https://github.com/Forceflow/twitter_blocklist_exporter
+Twitter Blocklist exporter v0.2 - https://github.com/Forceflow/twitter_blocklist_exporter
 ---
 Loading Twitter API keys from file
 Authenticating with Twitter
@@ -22,9 +23,9 @@ Done. Exiting.
 <img src="https://raw.githubusercontent.com/Forceflow/twitter_blocklist_exporter/main/sample_output.png" alt="Sample Output" width="710">
 
 # Generate API tokens
-In order to query and download your blocklist, this script needs **API tokens** that you need to provide in a `keys.json` file in the same directory as the script.
+In order to query and download your blocklist/mutelist, this script needs **API tokens** that you need to provide in a `keys.json` file in the same directory as the script.
 
-At the time of writing (10-03-2023), this is how you generate the tokens required to export your blocklist. Also at the time of writing, this functionality still is free for a limited amount of requests. Tweepy batches the requests as much as possible.
+At the time of writing (10-03-2023), this is how you generate the tokens required to export your blocklist/mutelist. Also at the time of writing, this functionality still is free for a limited amount of requests. Tweepy batches the requests as much as possible.
 
 * Register on the **[Twitter Developer Portal](https://developer.twitter.com/)**.
 * Log in, and on the [main dashboard](https://developer.twitter.com/en/portal/dashboard), go to [Projects & Apps -> overview](https://developer.twitter.com/en/portal/projects-and-apps)
